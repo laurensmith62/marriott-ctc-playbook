@@ -58,8 +58,8 @@
     .hero-btns { display:flex; gap:1rem; justify-content:center; flex-wrap:wrap; }
     .btn-gold { display:inline-block; background:var(--red); color:var(--white); padding:0.85rem 2.2rem; font-size:0.8rem; letter-spacing:0.1em; text-transform:uppercase; font-weight:700; text-decoration:none; border-radius:2px; border:none; cursor:pointer; transition:background 0.2s; }
     .btn-gold:hover { background:var(--red-light); }
-    .btn-outline { display:inline-block; background:transparent; color:var(--white); padding:0.85rem 2.2rem; font-size:0.8rem; letter-spacing:0.1em; text-transform:uppercase; font-weight:700; text-decoration:none; border-radius:2px; border:1px solid rgba(255,255,255,0.3); cursor:pointer; transition:border-color 0.2s,color 0.2s; }
-    .btn-outline:hover { border-color:var(--red); color:var(--red); }
+    .btn-outline { display:inline-block; background:transparent; color:var(--white); padding:0.85rem 2.2rem; font-size:0.8rem; letter-spacing:0.1em; text-transform:uppercase; font-weight:700; text-decoration:none; border-radius:2px; border:1px solid rgba(255,255,255,0.5); cursor:pointer; transition:all 0.2s; }
+    .btn-outline:hover { border-color:var(--white); background:rgba(255,255,255,0.1); color:var(--white); }
 
     /* SECTIONS */
     section { padding:5.5rem 2rem; }
@@ -86,9 +86,9 @@
     .prob-card.after  ul li::before { content:'✓'; color:var(--green); flex-shrink:0; margin-top:1px; }
 
     /* ── INTERACTIVE DEMO ── */
-    .demo-section { background:var(--dark); }
-    .demo-section .sec-title { color:var(--white); }
-    .demo-section .sec-body { color:rgba(255,255,255,0.62); }
+    .demo-section { background:var(--off-white); }
+    .demo-section .sec-title { color:var(--dark); }
+    .demo-section .sec-body { color:#4a5568; }
 
     .demo-wrapper { margin-top:3rem; display:grid; grid-template-columns:1fr 1fr; gap:2rem; align-items:start; }
     @media(max-width:760px){.demo-wrapper{grid-template-columns:1fr;}}
@@ -163,13 +163,13 @@
 
     /* Toggle controls */
     .demo-controls { display:flex; flex-direction:column; gap:0.75rem; }
-    .demo-controls h4 { font-size:0.68rem; letter-spacing:0.16em; text-transform:uppercase; color:var(--red-bright); font-weight:700; margin-bottom:0.2rem; }
-    .step-btn { background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.12); color:rgba(255,255,255,0.7); padding:0.7rem 1rem; border-radius:4px; font-size:0.82rem; text-align:left; cursor:pointer; transition:all 0.2s; display:flex; align-items:center; gap:0.7rem; }
-    .step-btn:hover { background:rgba(255,255,255,0.1); border-color:rgba(180,31,58,0.5); }
-    .step-btn.active { background:rgba(180,31,58,0.1); border-color:var(--red); color:var(--white); }
-    .step-btn .step-num { width:22px; height:22px; border-radius:50%; background:rgba(255,255,255,0.1); display:flex; align-items:center; justify-content:center; font-size:0.68rem; font-weight:700; flex-shrink:0; color:var(--red); }
+    .demo-controls h4 { font-size:0.68rem; letter-spacing:0.16em; text-transform:uppercase; color:var(--red); font-weight:700; margin-bottom:0.2rem; }
+    .step-btn { background:#fff; border:1px solid var(--border); color:#4a5568; padding:0.7rem 1rem; border-radius:4px; font-size:0.82rem; text-align:left; cursor:pointer; transition:all 0.2s; display:flex; align-items:center; gap:0.7rem; box-shadow:0 1px 3px rgba(0,0,0,0.06); }
+    .step-btn:hover { background:#fdf0f2; border-color:rgba(180,31,58,0.4); }
+    .step-btn.active { background:#fdf0f2; border-color:var(--red); color:var(--dark); }
+    .step-btn .step-num { width:22px; height:22px; border-radius:50%; background:#f5e0e3; display:flex; align-items:center; justify-content:center; font-size:0.68rem; font-weight:700; flex-shrink:0; color:var(--red); }
     .step-btn.active .step-num { background:var(--red); color:var(--white); }
-    .step-desc { font-size:0.72rem; color:rgba(255,255,255,0.45); margin-top:2px; }
+    .step-desc { font-size:0.72rem; color:#8a9ab0; margin-top:2px; }
 
     /* ── ARCHITECTURE SECTION ── */
     .arch-section { background:var(--off-white); }
@@ -214,25 +214,25 @@
     .def-card p { font-size:0.88rem; color:#4a5568; line-height:1.75; }
 
     /* ── PHASES ── */
-    .phases-section { background:var(--dark); }
-    .phases-section .sec-title { color:var(--white); }
-    .phases-section .sec-body { color:rgba(255,255,255,0.62); }
+    .phases-section { background:var(--white); }
+    .phases-section .sec-title { color:var(--dark); }
+    .phases-section .sec-body { color:#4a5568; }
     .phases-grid { display:grid; grid-template-columns:1fr 1fr; gap:2rem; margin-top:3rem; }
     @media(max-width:660px){.phases-grid{grid-template-columns:1fr;}}
-    .phase-card { background:rgba(255,255,255,0.05); border:1px solid rgba(180,31,58,0.2); border-radius:4px; padding:2rem; font-family:'Arial',sans-serif; }
-    .phase-card.p1 { border-color:rgba(180,31,58,0.5); }
+    .phase-card { background:var(--off-white); border:1px solid var(--border); border-radius:4px; padding:2rem; font-family:'Arial',sans-serif; }
+    .phase-card.p1 { border-color:var(--red); border-top:3px solid var(--red); }
     .phase-card h3 { font-size:0.7rem; letter-spacing:0.16em; text-transform:uppercase; color:var(--red); margin-bottom:0.4rem; font-weight:700; }
-    .phase-card .phase-title { font-size:1.05rem; color:var(--white); font-weight:700; margin-bottom:1rem; }
+    .phase-card .phase-title { font-size:1.05rem; color:var(--dark); font-weight:700; margin-bottom:1rem; }
     .phase-card ul { list-style:none; }
-    .phase-card ul li { font-size:0.88rem; color:rgba(255,255,255,0.72); padding:0.45rem 0; border-bottom:1px solid rgba(255,255,255,0.07); display:flex; gap:0.6rem; line-height:1.5; }
+    .phase-card ul li { font-size:0.88rem; color:#4a5568; padding:0.45rem 0; border-bottom:1px solid rgba(0,0,0,0.07); display:flex; gap:0.6rem; line-height:1.5; }
     .phase-card ul li::before { content:'→'; color:var(--red); flex-shrink:0; }
 
     /* ── CTA ── */
-    .cta-section { background:linear-gradient(155deg,var(--dark) 0%,var(--dark-mid) 100%); text-align:center; padding:6rem 2rem; }
+    .cta-section { background:var(--red); text-align:center; padding:6rem 2rem; }
     .cta-section .sec-title { color:var(--white); }
-    .cta-section .sec-body { color:rgba(255,255,255,0.62); margin:0 auto 2.5rem; }
+    .cta-section .sec-body { color:rgba(255,255,255,0.75); margin:0 auto 2.5rem; }
 
-    footer { background:#060e1c; padding:1.8rem; text-align:center; font-size:0.75rem; color:rgba(255,255,255,0.28); letter-spacing:0.08em; border-top:2px solid var(--red); }
+    footer { background:var(--white); padding:1.8rem; text-align:center; font-size:0.75rem; color:var(--muted); letter-spacing:0.08em; border-top:2px solid var(--red); }
 
     /* hidden states */
     .agent-before, .agent-after { transition:opacity 0.4s; }
@@ -349,7 +349,7 @@
 <section class="demo-section" id="demo">
   <div class="container">
     <div class="fade">
-      <div class="sec-label" style="color:var(--red-bright)">02 · Interactive Demo</div>
+      <div class="sec-label">02 · Interactive Demo</div>
       <h2 class="sec-title">Walk through the experience.</h2>
       <p class="sec-body">Click through each step to see what the guest experiences on the left — and what the agent sees the moment the call connects on the right.</p>
     </div>
@@ -753,11 +753,11 @@
 <section class="cta-section" id="next">
   <div class="container">
     <div class="fade">
-      <div class="sec-label" style="color:var(--red-bright)">06 · Next Steps</div>
+      <div class="sec-label" style="color:rgba(255,255,255,0.7)">06 · Next Steps</div>
       <h2 class="sec-title">Ready to build the proof of concept.</h2>
       <p class="sec-body">The POC would run in Marriott's lower environment — demonstrating AI assistant escalation, context payload, agent handoff, and callback logic with at least one live integration touchpoint.</p>
       <div class="hero-btns">
-        <a href="#demo" class="btn-gold">Replay the Demo</a>
+        <a href="#demo" style="background:#fff;color:var(--red);" class="btn-gold">Replay the Demo</a>
         <a href="#architecture" class="btn-outline">Review Architecture</a>
       </div>
     </div>
