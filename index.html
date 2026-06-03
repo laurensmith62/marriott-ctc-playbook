@@ -40,7 +40,7 @@
 
     /* HERO */
     .hero {
-      background:linear-gradient(155deg,var(--dark) 0%,var(--dark-mid) 55%,#25080f 100%);
+      background:linear-gradient(150deg,#0f0205 0%,#1c0610 40%,var(--red) 100%);
       min-height:100vh; display:flex; align-items:center; justify-content:center;
       text-align:center; padding:7rem 2rem 5rem; position:relative; overflow:hidden;
     }
@@ -60,24 +60,30 @@
     .btn-gold:hover { background:var(--red-light); }
     .btn-outline { display:inline-block; background:transparent; color:var(--white); padding:0.85rem 2.2rem; font-size:0.8rem; letter-spacing:0.1em; text-transform:uppercase; font-weight:700; text-decoration:none; border-radius:2px; border:1px solid rgba(255,255,255,0.5); cursor:pointer; transition:all 0.2s; }
     .btn-outline:hover { border-color:var(--white); background:rgba(255,255,255,0.1); color:var(--white); }
+    .hero-stats { display:flex; align-items:center; justify-content:center; gap:0; margin-top:3.5rem; border-top:1px solid rgba(255,255,255,0.1); padding-top:2rem; flex-wrap:wrap; gap:0; }
+    .hero-stat { text-align:center; padding:0 2.5rem; }
+    .hero-stat-num { font-size:1.6rem; font-weight:700; color:var(--white); letter-spacing:-0.02em; }
+    .hero-stat-label { font-size:0.7rem; color:rgba(255,255,255,0.45); margin-top:0.2rem; max-width:120px; line-height:1.4; }
+    .hero-stat-div { width:1px; height:36px; background:rgba(255,255,255,0.12); flex-shrink:0; }
+    @media(max-width:600px){ .hero-stats { flex-direction:column; gap:1.5rem; } .hero-stat-div { display:none; } }
 
     /* SECTIONS */
     section { padding:5.5rem 2rem; }
     .container { max-width:1040px; margin:0 auto; }
-    .sec-label { font-size:0.68rem; letter-spacing:0.22em; text-transform:uppercase; color:var(--red); margin-bottom:0.4rem; font-weight:700; }
+    .sec-label { display:inline-block; font-size:0.6rem; letter-spacing:0.16em; text-transform:uppercase; background:var(--red); color:#fff; padding:0.22rem 0.8rem; border-radius:2px; margin-bottom:0.9rem; font-weight:700; }
     .sec-title { font-size:clamp(1.6rem,3vw,2.4rem); font-family:'Georgia',serif; font-weight:normal; color:var(--dark); line-height:1.22; margin-bottom:1rem; }
     .sec-body { font-size:1rem; color:#4a5568; line-height:1.85; max-width:660px; }
     .fade { opacity:0; transform:translateY(20px); transition:opacity 0.55s ease,transform 0.55s ease; }
     .fade.in { opacity:1; transform:none; }
 
     /* ── PROBLEM SECTION ── */
-    .problem-section { background:var(--white); }
+    .problem-section { background:var(--white); border-top:4px solid var(--red); }
     .problem-split { display:grid; grid-template-columns:1fr 1fr; gap:2rem; margin-top:3rem; }
     @media(max-width:680px){.problem-split{grid-template-columns:1fr;}}
     .prob-card { border-radius:4px; padding:2rem; font-family:'Arial',sans-serif; }
     .prob-card.before { background:#fff5f5; border:1px solid #fed7d7; border-top:3px solid var(--red); }
     .prob-card.after  { background:#f0fdf4; border:1px solid #bbf7d0; border-top:3px solid var(--green); }
-    .prob-card h3 { font-size:0.7rem; letter-spacing:0.16em; text-transform:uppercase; margin-bottom:1.2rem; font-weight:700; }
+    .prob-card h3 { font-size:0.68rem; letter-spacing:0.16em; text-transform:uppercase; margin-bottom:1.2rem; font-weight:700; display:flex; align-items:center; gap:0.5rem; }
     .prob-card.before h3 { color:var(--red); }
     .prob-card.after  h3 { color:var(--green); }
     .prob-card ul { list-style:none; }
@@ -90,7 +96,8 @@
     .demo-section .sec-title { color:var(--dark); }
     .demo-section .sec-body { color:#4a5568; }
 
-    .demo-wrapper { margin-top:3rem; display:grid; grid-template-columns:1fr 1fr; gap:2rem; align-items:start; }
+    .demo-stage { background:#fff; border-radius:8px; padding:2.5rem; margin-top:2.5rem; box-shadow:0 4px 24px rgba(0,0,0,0.08); border:1px solid var(--border); }
+    .demo-wrapper { display:grid; grid-template-columns:1fr 1fr; gap:2rem; align-items:start; }
     @media(max-width:760px){.demo-wrapper{grid-template-columns:1fr;}}
 
     /* Phone mockup */
@@ -172,7 +179,7 @@
     .step-desc { font-size:0.72rem; color:#8a9ab0; margin-top:2px; }
 
     /* ── ARCHITECTURE SECTION ── */
-    .arch-section { background:var(--off-white); }
+    .arch-section { background:var(--white); }
     .arch-layers { display:flex; flex-direction:column; gap:1px; margin-top:3rem; }
     .arch-layer { display:grid; grid-template-columns:180px 1fr; gap:0; border-radius:4px; overflow:hidden; }
     @media(max-width:600px){.arch-layer{grid-template-columns:1fr;}}
@@ -196,31 +203,39 @@
     .phase-tag.p2 { background:rgba(92,57,153,0.1); color:#5b2d8f; border-color:rgba(92,57,153,0.3); }
 
     /* ── DEFINITIONS ── */
-    .defs-section { background:var(--white); }
-    .defs-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:1.5rem; margin-top:2.5rem; }
-    @media(max-width:620px){.defs-grid{grid-template-columns:1fr;}}
-    .def-card { border-radius:4px; padding:1.8rem; border:1px solid var(--border); position:relative; overflow:hidden; }
+    .defs-section { background:var(--off-white); }
+    .spectrum-bar { display:flex; margin-top:2.5rem; border-radius:6px; overflow:hidden; height:6px; }
+    .spectrum-bar span { flex:1; }
+    .spectrum-bar .s1 { background:#e74c3c; }
+    .spectrum-bar .s2 { background:#f39c12; }
+    .spectrum-bar .s3 { background:#27ae60; }
+    .spectrum-bar .s4 { background:var(--sf-blue); }
+    .defs-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:1rem; margin-top:0.5rem; }
+    @media(max-width:760px){.defs-grid{grid-template-columns:repeat(2,1fr);}}
+    @media(max-width:480px){.defs-grid{grid-template-columns:1fr;}}
+    .def-card { background:#fff; border-radius:4px; padding:1.5rem; border:1px solid var(--border); position:relative; overflow:hidden; }
     .def-card::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; }
     .def-card.anon::before   { background:#e74c3c; }
     .def-card.ident::before  { background:#f39c12; }
     .def-card.auth::before   { background:#27ae60; }
     .def-card.person::before { background:var(--sf-blue); }
-    .def-card h3 { font-size:0.78rem; font-weight:700; color:var(--dark); margin-bottom:0.5rem; display:flex; align-items:center; gap:0.5rem; }
-    .def-badge { font-size:0.6rem; padding:0.15rem 0.5rem; border-radius:10px; font-weight:700; }
+    .def-card h3 { font-size:0.75rem; font-weight:700; color:var(--dark); margin-bottom:0.5rem; display:flex; flex-direction:column; gap:0.35rem; }
+    .def-badge { display:inline-block; font-size:0.58rem; padding:0.12rem 0.5rem; border-radius:10px; font-weight:700; width:fit-content; }
     .anon   .def-badge { background:#fde8e8; color:#c0392b; }
     .ident  .def-badge { background:#fef3cd; color:#9b6200; }
     .auth   .def-badge { background:#d4edda; color:#155724; }
     .person .def-badge { background:#e8f4ff; color:#0176d3; }
-    .def-card p { font-size:0.88rem; color:#4a5568; line-height:1.75; }
+    .def-card p { font-size:0.82rem; color:#4a5568; line-height:1.7; margin-top:0.5rem; }
 
     /* ── PHASES ── */
-    .phases-section { background:var(--white); }
+    .phases-section { background:var(--off-white); }
     .phases-section .sec-title { color:var(--dark); }
     .phases-section .sec-body { color:#4a5568; }
     .phases-grid { display:grid; grid-template-columns:1fr 1fr; gap:2rem; margin-top:3rem; }
     @media(max-width:660px){.phases-grid{grid-template-columns:1fr;}}
     .phase-card { background:var(--off-white); border:1px solid var(--border); border-radius:4px; padding:2rem; font-family:'Arial',sans-serif; }
-    .phase-card.p1 { border-color:var(--red); border-top:3px solid var(--red); }
+    .phase-card.p1 { border-top:3px solid var(--red); }
+    .phase-card.p2-style { border-top:3px solid var(--sf-blue); }
     .phase-card h3 { font-size:0.7rem; letter-spacing:0.16em; text-transform:uppercase; color:var(--red); margin-bottom:0.4rem; font-weight:700; }
     .phase-card .phase-title { font-size:1.05rem; color:var(--dark); font-weight:700; margin-bottom:1rem; }
     .phase-card ul { list-style:none; }
@@ -307,6 +322,13 @@
       <a href="#demo" class="btn-gold">See It in Action</a>
       <a href="#architecture" class="btn-outline">View Architecture</a>
     </div>
+    <div class="hero-stats">
+      <div class="hero-stat"><div class="hero-stat-num">10 min</div><div class="hero-stat-label">avg help-site session before calling</div></div>
+      <div class="hero-stat-div"></div>
+      <div class="hero-stat"><div class="hero-stat-num">0 sec</div><div class="hero-stat-label">of context passed to agent today</div></div>
+      <div class="hero-stat-div"></div>
+      <div class="hero-stat"><div class="hero-stat-num">1 call</div><div class="hero-stat-label">to fix it — with the right data</div></div>
+    </div>
   </div>
 </div>
 
@@ -354,7 +376,8 @@
       <p class="sec-body">Click through each step to see what the guest experiences on the left — and what the agent sees the moment the call connects on the right.</p>
     </div>
 
-    <div class="demo-wrapper fade">
+    <div class="demo-stage fade">
+    <div class="demo-wrapper">
 
       <!-- LEFT: Phone -->
       <div class="phone-wrap">
@@ -600,6 +623,7 @@
         </div>
       </div>
     </div>
+    </div>
   </div>
 </section>
 
@@ -690,6 +714,7 @@
       <h2 class="sec-title">Understanding the guest identity spectrum.</h2>
       <p class="sec-body">The solution behaves differently depending on how much we know about the guest. The goal is always to move toward authentication as early as possible.</p>
     </div>
+    <div class="spectrum-bar"><span class="s1"></span><span class="s2"></span><span class="s3"></span><span class="s4"></span></div>
     <div class="defs-grid fade">
       <div class="def-card anon">
         <h3>Anonymous <span class="def-badge">Lowest Context</span></h3>
@@ -715,7 +740,7 @@
 <section class="phases-section" id="phases">
   <div class="container">
     <div class="fade">
-      <div class="sec-label" style="color:var(--red-bright)">05 · Phased Approach</div>
+      <div class="sec-label">05 · Phased Approach</div>
       <h2 class="sec-title">Two phases to the full solution.</h2>
       <p class="sec-body">Phase 1 solves the core problem: making the two systems talk to each other and providing a better experience. Phase 2 elevates what the agent sees and deepens the intelligence.</p>
     </div>
@@ -753,7 +778,7 @@
 <section class="cta-section" id="next">
   <div class="container">
     <div class="fade">
-      <div class="sec-label" style="color:rgba(255,255,255,0.7)">06 · Next Steps</div>
+      <div class="sec-label" style="background:rgba(255,255,255,0.2)">06 · Next Steps</div>
       <h2 class="sec-title">Ready to build the proof of concept.</h2>
       <p class="sec-body">The POC would run in Marriott's lower environment — demonstrating AI assistant escalation, context payload, agent handoff, and callback logic with at least one live integration touchpoint.</p>
       <div class="hero-btns">
