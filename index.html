@@ -188,29 +188,98 @@
     .trail-item.active { background:rgba(180,31,58,0.1); color:#8a1525; border:1px solid rgba(180,31,58,0.3); }
     .trail-item::before { content:'›'; color:var(--muted); }
 
-    /* Agent screen mockup */
+    /* ── SALESFORCE LIGHTNING SERVICE CONSOLE ── */
     .agent-wrap { display:flex; flex-direction:column; gap:1rem; }
-    .agent-screen { background:#14050b; border-radius:8px; overflow:hidden; border:1px solid #333; }
-    .agent-bar { background:#100408; padding:8px 14px; display:flex; align-items:center; gap:8px; border-bottom:1px solid #333; }
-    .agent-bar-dot { width:8px; height:8px; border-radius:50%; }
-    .agent-bar-title { font-size:0.62rem; color:rgba(255,255,255,0.5); margin-left:4px; }
-    .agent-content { padding:14px; }
-    .agent-greeting { font-size:0.68rem; color:rgba(255,255,255,0.4); margin-bottom:12px; font-style:italic; }
+    .sf-console { border-radius:6px; overflow:hidden; border:1px solid #dddbda; font-family:'Salesforce Sans',Arial,sans-serif; box-shadow:0 4px 16px rgba(0,0,0,0.15); }
 
-    .intel-card { background:#200810; border-radius:6px; padding:10px 12px; margin-bottom:8px; }
-    .intel-card h5 { font-size:0.58rem; letter-spacing:0.12em; text-transform:uppercase; margin-bottom:8px; font-weight:700; }
-    .intel-row { display:flex; justify-content:space-between; align-items:baseline; padding:3px 0; border-bottom:1px solid rgba(255,255,255,0.05); }
-    .intel-row:last-child { border-bottom:none; }
-    .intel-label { font-size:0.6rem; color:rgba(255,255,255,0.45); }
-    .intel-value { font-size:0.62rem; font-weight:700; }
+    /* Utility bar */
+    .sf-utility-bar { background:#1b1b1b; height:28px; display:flex; align-items:center; padding:0 10px; gap:12px; border-bottom:1px solid #333; }
+    .sf-utility-item { font-size:0.55rem; color:rgba(255,255,255,0.5); display:flex; align-items:center; gap:4px; cursor:pointer; }
+    .sf-utility-item.active { color:#fff; }
+    .sf-utility-dot { width:6px; height:6px; border-radius:50%; background:#27ae60; flex-shrink:0; }
+    .sf-utility-dot.red { background:#e74c3c; }
 
-    .intent-banner { background:rgba(180,31,58,0.18); border:1px solid rgba(180,31,58,0.45); border-radius:6px; padding:10px 12px; margin-bottom:8px; }
-    .intent-banner h5 { font-size:0.58rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--red-bright); margin-bottom:5px; font-weight:700; }
-    .intent-banner p { font-size:0.68rem; color:rgba(255,255,255,0.8); line-height:1.5; font-style:italic; }
+    /* App header */
+    .sf-app-bar { background:#032D60; height:36px; display:flex; align-items:center; padding:0 10px; gap:8px; border-bottom:1px solid #014486; }
+    .sf-app-logo { font-size:0.58rem; font-weight:700; color:#fff; letter-spacing:0.04em; display:flex; align-items:center; gap:5px; }
+    .sf-app-logo-icon { width:16px; height:16px; background:#0176D3; border-radius:3px; display:flex; align-items:center; justify-content:center; font-size:0.55rem; color:#fff; font-weight:700; }
+    .sf-app-tabs { display:flex; gap:1px; margin-left:4px; flex:1; overflow:hidden; }
+    .sf-tab { height:36px; padding:0 10px; display:flex; align-items:center; gap:5px; font-size:0.58rem; color:rgba(255,255,255,0.6); cursor:pointer; border-bottom:2px solid transparent; white-space:nowrap; }
+    .sf-tab.active { color:#fff; border-bottom-color:#fff; background:rgba(255,255,255,0.08); }
+    .sf-tab-icon { font-size:0.65rem; }
 
-    .suggested-open { background:rgba(1,118,211,0.1); border:1px solid rgba(1,118,211,0.3); border-radius:6px; padding:10px 12px; }
-    .suggested-open h5 { font-size:0.58rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--sf-cloud); margin-bottom:6px; font-weight:700; }
-    .suggested-btn { background:var(--sf-blue); color:#fff; border:none; border-radius:4px; padding:5px 10px; font-size:0.62rem; font-weight:700; cursor:pointer; margin-right:4px; margin-bottom:4px; }
+    /* Highlights panel */
+    .sf-highlights { background:#f3f3f3; border-bottom:1px solid #dddbda; padding:8px 12px; }
+    .sf-hl-top { display:flex; align-items:center; gap:8px; margin-bottom:6px; }
+    .sf-hl-avatar { width:32px; height:32px; border-radius:50%; background:#0176D3; display:flex; align-items:center; justify-content:center; font-size:0.7rem; font-weight:700; color:#fff; flex-shrink:0; }
+    .sf-hl-name { font-size:0.78rem; font-weight:700; color:#080707; }
+    .sf-hl-sub { font-size:0.6rem; color:#706e6b; margin-top:1px; }
+    .sf-hl-badge { display:inline-block; font-size:0.55rem; padding:0.1rem 0.45rem; border-radius:10px; font-weight:700; margin-left:6px; }
+    .sf-hl-badge.titanium { background:#e0d5f5; color:#5a2d91; }
+    .sf-hl-badge.online { background:#d4f5e2; color:#1a6e3a; }
+    .sf-hl-badge.alert { background:#fce8e8; color:#b71c1c; }
+    .sf-hl-fields { display:grid; grid-template-columns:repeat(4,1fr); gap:6px; }
+    .sf-hl-field { }
+    .sf-hl-field-label { font-size:0.52rem; color:#706e6b; text-transform:uppercase; letter-spacing:0.06em; margin-bottom:1px; }
+    .sf-hl-field-val { font-size:0.65rem; font-weight:700; color:#080707; }
+    .sf-hl-field-val.blue { color:#0176D3; }
+    .sf-hl-field-val.purple { color:#7b5ea7; }
+    .sf-hl-field-val.muted { color:#b0ada9; }
+
+    /* Action bar */
+    .sf-action-bar { background:#fff; border-bottom:1px solid #dddbda; padding:5px 10px; display:flex; gap:6px; align-items:center; }
+    .sf-btn { border:1px solid #dddbda; background:#fff; color:#0176D3; border-radius:4px; padding:3px 9px; font-size:0.6rem; font-weight:700; cursor:pointer; display:flex; align-items:center; gap:4px; white-space:nowrap; }
+    .sf-btn:hover { background:#f4f6f9; }
+    .sf-btn.primary { background:#0176D3; color:#fff; border-color:#0176D3; }
+    .sf-btn.primary:hover { background:#0161b5; }
+    .sf-btn.success { background:#2e9e68; color:#fff; border-color:#2e9e68; }
+
+    /* Console body */
+    .sf-body { background:#f3f3f3; padding:8px; display:flex; flex-direction:column; gap:6px; }
+
+    /* Cards */
+    .sf-card { background:#fff; border:1px solid #dddbda; border-radius:4px; overflow:hidden; }
+    .sf-card-header { background:#f3f3f3; border-bottom:1px solid #dddbda; padding:5px 10px; display:flex; align-items:center; gap:6px; }
+    .sf-card-header-icon { width:18px; height:18px; border-radius:3px; display:flex; align-items:center; justify-content:center; font-size:0.6rem; }
+    .sf-card-header-icon.blue { background:#0176D3; color:#fff; }
+    .sf-card-header-icon.green { background:#2e9e68; color:#fff; }
+    .sf-card-header-icon.purple { background:#7b5ea7; color:#fff; }
+    .sf-card-header-icon.orange { background:#E07B00; color:#fff; }
+    .sf-card-title { font-size:0.62rem; font-weight:700; color:#080707; }
+    .sf-card-body { padding:7px 10px; }
+
+    .sf-field-grid { display:grid; grid-template-columns:1fr 1fr; gap:4px 12px; }
+    .sf-field { }
+    .sf-field-label { font-size:0.52rem; color:#706e6b; text-transform:uppercase; letter-spacing:0.05em; margin-bottom:1px; }
+    .sf-field-val { font-size:0.65rem; color:#080707; font-weight:600; }
+    .sf-field-val.blue { color:#0176D3; }
+    .sf-field-val.muted { color:#b0ada9; font-weight:400; }
+    .sf-field-val.green { color:#2e9e68; }
+    .sf-field-val.red { color:#B41F3A; }
+    .sf-field-val.purple { color:#7b5ea7; }
+
+    /* Intent banner - SF style */
+    .sf-intent-banner { background:#fef3e2; border:1px solid #fdc748; border-radius:4px; padding:6px 10px; display:flex; gap:8px; align-items:flex-start; }
+    .sf-intent-icon { font-size:0.8rem; flex-shrink:0; margin-top:1px; }
+    .sf-intent-body { flex:1; }
+    .sf-intent-label { font-size:0.55rem; font-weight:700; color:#7a4f00; text-transform:uppercase; letter-spacing:0.06em; margin-bottom:2px; }
+    .sf-intent-text { font-size:0.62rem; color:#3e2000; line-height:1.45; }
+
+    /* Click path */
+    .sf-path-row { display:flex; align-items:center; justify-content:space-between; padding:3px 0; border-bottom:1px solid #f0efed; }
+    .sf-path-row:last-child { border-bottom:none; }
+    .sf-path-page { font-size:0.6rem; color:#080707; }
+    .sf-path-time { font-size:0.58rem; color:#706e6b; }
+    .sf-path-row.exit .sf-path-page { color:#B41F3A; font-weight:700; }
+    .sf-path-row.exit .sf-path-time { color:#B41F3A; }
+
+    /* Before / waiting state */
+    .sf-waiting { background:#f3f3f3; padding:20px; text-align:center; }
+    .sf-waiting-icon { font-size:1.4rem; margin-bottom:6px; opacity:0.35; }
+    .sf-waiting-text { font-size:0.65rem; color:#706e6b; line-height:1.5; }
+    .sf-incoming-banner { background:#032D60; padding:6px 10px; display:flex; align-items:center; gap:8px; }
+    .sf-incoming-dot { width:8px; height:8px; border-radius:50%; background:#27ae60; animation:pulse 1s infinite; }
+    .sf-incoming-text { font-size:0.62rem; color:#fff; font-weight:700; }
 
     /* Demo state overlay */
     .demo-state-label { text-align:center; margin-top:1rem; }
@@ -667,96 +736,150 @@
           </button>
         </div>
 
-        <!-- Agent screen -->
-        <div class="agent-screen" id="agent-screen-wrap">
-          <div class="agent-bar">
-            <div class="agent-bar-dot" style="background:#ff5f57;"></div>
-            <div class="agent-bar-dot" style="background:#febc2e;"></div>
-            <div class="agent-bar-dot" style="background:#28c840;"></div>
-            <div class="agent-bar-title">Agentforce · Service Console</div>
-          </div>
-          <div class="agent-content">
+        <!-- Salesforce Lightning Service Console -->
+        <div class="sf-console" id="agent-screen-wrap">
 
-            <!-- Before state -->
-            <div id="agent-before">
-              <div class="agent-greeting">Waiting for inbound call...</div>
-              <div class="intel-card">
-                <h5 style="color:rgba(255,255,255,0.3);">Guest Profile</h5>
-                <div class="intel-row">
-                  <div class="intel-label">Guest</div>
-                  <div class="intel-value" style="color:rgba(255,255,255,0.25);">Unknown</div>
+          <!-- Utility Bar -->
+          <div class="sf-utility-bar">
+            <div class="sf-utility-item active"><div class="sf-utility-dot"></div>Available</div>
+            <div class="sf-utility-item">📞 Softphone</div>
+            <div class="sf-utility-item">📋 My Cases</div>
+            <div style="margin-left:auto;font-size:0.52rem;color:rgba(255,255,255,0.25);">Agentforce Service Console</div>
+          </div>
+
+          <!-- App Header / Tab Bar -->
+          <div class="sf-app-bar">
+            <div class="sf-app-logo">
+              <div class="sf-app-logo-icon">SF</div>
+              Service Console
+            </div>
+            <div class="sf-app-tabs">
+              <div class="sf-tab active"><span class="sf-tab-icon">👤</span> Case · Inbound Call</div>
+              <div class="sf-tab"><span class="sf-tab-icon">🏠</span> Home</div>
+            </div>
+          </div>
+
+          <!-- BEFORE STATE -->
+          <div id="agent-before">
+            <div class="sf-highlights" style="background:#f3f3f3;padding:14px 12px;text-align:center;">
+              <div style="font-size:0.65rem;color:#706e6b;margin-bottom:4px;">📞 Waiting for inbound call...</div>
+              <div style="font-size:0.58rem;color:#b0ada9;">No active case · Agent status: Available</div>
+            </div>
+            <div class="sf-action-bar">
+              <div class="sf-btn" style="color:#b0ada9;cursor:default;">✎ Edit</div>
+              <div class="sf-btn" style="color:#b0ada9;cursor:default;">＋ New Case</div>
+            </div>
+            <div class="sf-body">
+              <div class="sf-card">
+                <div class="sf-card-header">
+                  <div class="sf-card-header-icon blue">👤</div>
+                  <div class="sf-card-title">Guest Profile</div>
                 </div>
-                <div class="intel-row">
-                  <div class="intel-label">Bonvoy #</div>
-                  <div class="intel-value" style="color:rgba(255,255,255,0.25);">—</div>
-                </div>
-                <div class="intel-row">
-                  <div class="intel-label">Tier</div>
-                  <div class="intel-value" style="color:rgba(255,255,255,0.25);">—</div>
-                </div>
-                <div class="intel-row">
-                  <div class="intel-label">Intent</div>
-                  <div class="intel-value" style="color:rgba(255,255,255,0.25);">Unknown</div>
+                <div class="sf-card-body">
+                  <div class="sf-field-grid">
+                    <div class="sf-field"><div class="sf-field-label">Name</div><div class="sf-field-val muted">—</div></div>
+                    <div class="sf-field"><div class="sf-field-label">Bonvoy #</div><div class="sf-field-val muted">—</div></div>
+                    <div class="sf-field"><div class="sf-field-label">Loyalty Tier</div><div class="sf-field-val muted">—</div></div>
+                    <div class="sf-field"><div class="sf-field-label">Intent</div><div class="sf-field-val muted">Unknown</div></div>
+                  </div>
                 </div>
               </div>
-              <div style="background:#14050b;border:1px dashed rgba(255,255,255,0.1);border-radius:6px;padding:14px;text-align:center;">
-                <div style="font-size:0.65rem;color:rgba(255,255,255,0.25);line-height:1.6;">No guest context available.<br>Agent will ask: "How can I help you today?"</div>
+              <div class="sf-waiting">
+                <div class="sf-waiting-icon">🎧</div>
+                <div class="sf-waiting-text">No guest context available.<br>Agent will ask: <em>"How can I help you today?"</em></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- AFTER STATE -->
+          <div id="agent-after" class="hidden">
+
+            <!-- Incoming call banner -->
+            <div class="sf-incoming-banner">
+              <div class="sf-incoming-dot"></div>
+              <div class="sf-incoming-text">📞 Inbound call connected · Context loaded via Data Cloud</div>
+            </div>
+
+            <!-- Highlights Panel -->
+            <div class="sf-highlights">
+              <div class="sf-hl-top">
+                <div class="sf-hl-avatar">JM</div>
+                <div>
+                  <div class="sf-hl-name">James R. Morrison <span class="sf-hl-badge titanium">Titanium Elite</span><span class="sf-hl-badge online">Authenticated</span></div>
+                  <div class="sf-hl-sub">Bonvoy Member · 347 lifetime nights · Atlanta, GA</div>
+                </div>
+              </div>
+              <div class="sf-hl-fields">
+                <div class="sf-hl-field"><div class="sf-hl-field-label">Bonvoy #</div><div class="sf-hl-field-val blue">BNV-847-229-01</div></div>
+                <div class="sf-hl-field"><div class="sf-hl-field-label">Open Reservation</div><div class="sf-hl-field-val">JW ATL · Jun 18–21</div></div>
+                <div class="sf-hl-field"><div class="sf-hl-field-label">Call Reason</div><div class="sf-hl-field-val red">Add Guest</div></div>
+                <div class="sf-hl-field"><div class="sf-hl-field-label">Help Pages Viewed</div><div class="sf-hl-field-val">4 pages · 8m 14s</div></div>
               </div>
             </div>
 
-            <!-- After state -->
-            <div id="agent-after" class="hidden">
-              <div class="agent-greeting">📞 Inbound call connected · Context loaded</div>
-              <div class="intel-card">
-                <h5 style="color:var(--red-bright);">Guest Profile · Authenticated</h5>
-                <div class="intel-row">
-                  <div class="intel-label">Guest</div>
-                  <div class="intel-value" style="color:#fff;">James R. Morrison</div>
-                </div>
-                <div class="intel-row">
-                  <div class="intel-label">Bonvoy #</div>
-                  <div class="intel-value" style="color:var(--red-bright);">BNV-847-229-01</div>
-                </div>
-                <div class="intel-row">
-                  <div class="intel-label">Tier</div>
-                  <div class="intel-value" style="color:#c084fc;">Titanium Elite</div>
-                </div>
-                <div class="intel-row">
-                  <div class="intel-label">Lifetime Stays</div>
-                  <div class="intel-value" style="color:#fff;">347 nights</div>
-                </div>
-                <div class="intel-row">
-                  <div class="intel-label">Open Reservation</div>
-                  <div class="intel-value" style="color:var(--sf-cloud);">JW Marriott ATL · Jun 18–21</div>
-                </div>
-              </div>
-              <div class="intent-banner">
-                <h5>Detected Intent</h5>
-                <p>"Guest visited 'Add Guest to Reservation' after browsing Reservation Modify. Clicked to call from help article. Unanswered question: adding spouse to JW ATL booking."</p>
-              </div>
-              <div class="intel-card">
-                <h5 style="color:rgba(255,255,255,0.5);">Click Path · Last 4 Pages</h5>
-                <div class="intel-row">
-                  <div class="intel-label">Help Home</div>
-                  <div class="intel-value" style="color:rgba(255,255,255,0.4);font-size:0.58rem;">2m 14s</div>
-                </div>
-                <div class="intel-row">
-                  <div class="intel-label">Modify Reservation</div>
-                  <div class="intel-value" style="color:rgba(255,255,255,0.4);font-size:0.58rem;">3m 47s</div>
-                </div>
-                <div class="intel-row" style="background:rgba(180,31,58,0.12);">
-                  <div class="intel-label" style="color:var(--red-bright);">Add Guest · Exit Point</div>
-                  <div class="intel-value" style="color:var(--red-bright);font-size:0.58rem;">1m 52s → Called</div>
-                </div>
-              </div>
-              <div class="suggested-open">
-                <h5>Suggested Action</h5>
-                <button class="suggested-btn">Add Guest to Reservation</button>
-                <button class="suggested-btn" style="background:#5b2d8f;">View Full Profile</button>
-              </div>
+            <!-- Action Bar -->
+            <div class="sf-action-bar">
+              <button class="sf-btn primary">✎ Add Guest to Reservation</button>
+              <button class="sf-btn success">📋 Open Full Profile</button>
+              <button class="sf-btn">📝 Log Call</button>
+              <button class="sf-btn">⋯</button>
             </div>
 
+            <!-- Body -->
+            <div class="sf-body">
+
+              <!-- Agentforce Intent Card -->
+              <div class="sf-card">
+                <div class="sf-card-header">
+                  <div class="sf-card-header-icon orange">⚡</div>
+                  <div class="sf-card-title">Agentforce · Detected Intent</div>
+                </div>
+                <div class="sf-card-body">
+                  <div class="sf-intent-banner">
+                    <div class="sf-intent-icon">💡</div>
+                    <div class="sf-intent-body">
+                      <div class="sf-intent-label">Suggested context</div>
+                      <div class="sf-intent-text">Guest browsed "Add Guest to Reservation" after failing to self-serve. Exit point: clicked to call from help article. Likely needs to add spouse to JW ATL booking Jun 18–21.</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Guest Details -->
+              <div class="sf-card">
+                <div class="sf-card-header">
+                  <div class="sf-card-header-icon blue">👤</div>
+                  <div class="sf-card-title">Guest Details · Data Cloud Unified Profile</div>
+                </div>
+                <div class="sf-card-body">
+                  <div class="sf-field-grid">
+                    <div class="sf-field"><div class="sf-field-label">Full Name</div><div class="sf-field-val">James R. Morrison</div></div>
+                    <div class="sf-field"><div class="sf-field-label">Loyalty Tier</div><div class="sf-field-val purple">Titanium Elite</div></div>
+                    <div class="sf-field"><div class="sf-field-label">Lifetime Stays</div><div class="sf-field-val">347 nights</div></div>
+                    <div class="sf-field"><div class="sf-field-label">Auth Status</div><div class="sf-field-val green">✓ Authenticated</div></div>
+                    <div class="sf-field"><div class="sf-field-label">Phone</div><div class="sf-field-val">(404) 555-0182</div></div>
+                    <div class="sf-field"><div class="sf-field-label">IVR Bypass</div><div class="sf-field-val green">✓ Eligible</div></div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Click Path -->
+              <div class="sf-card">
+                <div class="sf-card-header">
+                  <div class="sf-card-header-icon purple">🖱</div>
+                  <div class="sf-card-title">Click Path · Last 4 Help Pages</div>
+                </div>
+                <div class="sf-card-body">
+                  <div class="sf-path-row"><span class="sf-path-page">Help Home</span><span class="sf-path-time">2m 14s</span></div>
+                  <div class="sf-path-row"><span class="sf-path-page">Reservations Overview</span><span class="sf-path-time">1m 05s</span></div>
+                  <div class="sf-path-row"><span class="sf-path-page">Modify Reservation</span><span class="sf-path-time">3m 47s</span></div>
+                  <div class="sf-path-row exit"><span class="sf-path-page">⚑ Add Guest · Exit Point</span><span class="sf-path-time">1m 52s → Called</span></div>
+                </div>
+              </div>
+
+            </div>
           </div>
+
         </div>
       </div>
     </div>
